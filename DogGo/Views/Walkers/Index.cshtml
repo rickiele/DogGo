@@ -1,0 +1,61 @@
+﻿@model IEnumerable<DogGo.Models.Walker>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@**This is what was created when adding a view to index*@
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Neighborhood)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+@*We can also do things in our razor templates like make if statements or foreach loops to dynamically create html.
+Notice that any C# code that we want evaluated in the views starts with the @ symbol.
+Also notice that the Model keyword is a reference to whatever object that the view receives from the controller.  *@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Neighborhood.Name)
+                </td>
+                <td>
+                    <img src="@item.ImageUrl" alt="avatar" />
+                </td>
+                <td>
+                    @*Will generate <a> tags - The first is a link to Edit. We want to link it to the Edit action in the controller.*@
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id}) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
