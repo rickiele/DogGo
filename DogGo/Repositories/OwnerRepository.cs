@@ -167,7 +167,7 @@ namespace DogGo.Repositories
                     cmd.Parameters.AddWithValue("@email", owner.Email);
                     cmd.Parameters.AddWithValue("@phoneNumber", owner.Phone);
                     cmd.Parameters.AddWithValue("@address", owner.Address);
-                    cmd.Parameters.AddWithValue("@neighborhoodId", owner.Neighborhood.Id);
+                    cmd.Parameters.AddWithValue("@neighborhoodId", owner.NeighborhoodId);
 
                     int id = (int)cmd.ExecuteScalar();
 
@@ -198,7 +198,7 @@ namespace DogGo.Repositories
                     cmd.Parameters.AddWithValue("@email", owner.Email);
                     cmd.Parameters.AddWithValue("@address", owner.Address);
                     cmd.Parameters.AddWithValue("@phone", owner.Phone);
-                    cmd.Parameters.AddWithValue("@neighborhoodId", owner.Neighborhood.Id);
+                    cmd.Parameters.AddWithValue("@neighborhoodId", owner.NeighborhoodId);
                     cmd.Parameters.AddWithValue("@id", owner.Id);
 
                     cmd.ExecuteNonQuery();

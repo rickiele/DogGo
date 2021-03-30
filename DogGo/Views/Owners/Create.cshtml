@@ -18,8 +18,9 @@
             @*The asp-for attribute is something we get from ASP.NET and razor. When the attribute is on a <label> element, the generated html will be whatever the property name is.
               In the example here, the label will literally have the word "Email" in it. The resulting html will look like this:
               <label for="Email" class="control-label">Email</label> *@
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
+
+                @* <label asp-for="Id" class="control-label"></label>*@
+                <input asp-for="Id" type="hidden" class="form-control" />
                 <span asp-validation-for="Id" class="text-danger"></span>
             </div>
             <div class="form-group">
