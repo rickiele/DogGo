@@ -1,4 +1,6 @@
-﻿namespace DogGo.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DogGo.Models
 {
     public class Owner
     {
